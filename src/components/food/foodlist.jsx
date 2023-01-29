@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
+import AddCut from '../addcut/addcut'
 import './foodlist.less'
 class FoodList extends Component {
 	constructor() {
@@ -20,6 +21,7 @@ class FoodList extends Component {
 							<Text>{item.title}</Text>
 							<Text>月售：{item.sale}</Text>
 							<Text className='price'>￥{item.price}</Text>
+							<AddCut food={item} />
 						</View>
 
 					</View>)}

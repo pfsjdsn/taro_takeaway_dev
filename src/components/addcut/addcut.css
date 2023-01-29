@@ -1,0 +1,18 @@
+.addcut {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.addcut .operate_img {
+  width: 28px;
+  height: 28px;
+}
+.addcut .food_num {
+  min-width: 26px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: text-bottom;
+}

@@ -1,15 +1,19 @@
 .foodlist {
     padding: 10px;
+    flex-grow: 1;
 
     .foodlist_item {
         display: flex;
         flex-direction: row;
         margin-bottom: 8px;
+        // 独占剩下的空间
+        flex-grow: 1;
 
         .foodlist_item_info {
-
+            position: relative;
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
             font-size: 14px;
             margin-left: 14px;
             height: 80px;

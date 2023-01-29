@@ -1,14 +1,18 @@
 .foodlist {
   padding: 10px;
+  flex-grow: 1;
 }
 .foodlist .foodlist_item {
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
+  flex-grow: 1;
 }
 .foodlist .foodlist_item .foodlist_item_info {
+  position: relative;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   font-size: 14px;
   margin-left: 14px;
   height: 80px;
