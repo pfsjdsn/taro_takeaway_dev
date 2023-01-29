@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import Top from './top.jsx'
+import Activity from './activity.jsx'
 import './head.less'
 class Head extends Component {
 	constructor() {
@@ -33,6 +34,7 @@ class Head extends Component {
 						</View>
 					</View>
 				</View>
+				<Activity />
 			</View>
 		)
 	}

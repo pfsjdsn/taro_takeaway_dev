@@ -21,7 +21,8 @@
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 12px;
+  justify-content: space-between;
 }
 .head .store .store_text .tags_text {
   border: 1px solid greenyellow;

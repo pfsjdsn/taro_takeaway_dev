@@ -15,6 +15,7 @@ class Top extends Component {
 					<img src={require('../../assets/img/tuan.png')} />
 					<img src={require('../../assets/img/lue.png')} />
 				</View>
+
 			</View>
 		)
 	}
