@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
-import { getFoodCount, setFoodCount } from '../../utils/common'
+import { getFoodCount, setFoodCount, getEvent } from '../../utils/common'
 import './addcut.less'
+const myEvent = getEvent();
 class AddCut extends Component {
     constructor() {
         super(...arguments);
@@ -11,17 +12,25 @@ class AddCut extends Component {
     }
     componentDidMount () {
         this.setState({ Num: getFoodCount(this.props.food) })
+        myEvent.on('changeCata', () => {
+            // 监听到分类改变进行菜品数量刷新
+            this.setState({ Num: getFoodCount(this.props.food) })
+        })
     }
     // 减1
     CutFood () {
-        if (this.props.Num > 0) {
-            setFoodCount(this.props.food, this.state.Num, 'cut', () => {
-                this.setState({ Num: getFoodCount(this.props.food) })
-            })
+        if (this.props.food) {
+            if (this.state.Num > 0) {
+                setFoodCount(this.props.food, this.state.Num, 'cut', () => {
+                    this.setState({ Num: getFoodCount(this.props.food) })
+                })
+            }
+            else {
+                alert('已不能再减')
+                console.error('当前加减菜品出现异常')
+            }
         }
-        else {
-            console.error('当前加减菜品出现异常')
-        }
+
     }
     // 加1
     AddFood () {
@@ -30,9 +39,11 @@ class AddCut extends Component {
                 this.setState({ Num: getFoodCount(this.props.food) })
             })
         }
+        console.log(this.state.Num, 'this.state.Num');
+
     }
     render () {
-        let { Num } = this.setState
+        let { Num } = this.state
         let hideClass = Num > 0 ? '' : 'hide'
         return (<View className='addcut'>
             <img onClick={this.CutFood.bind(this)} className={'operate_img ' + hideClass} src={require('../../assets/img/cut.png')} alt="" />

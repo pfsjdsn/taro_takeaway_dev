@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import './cata.less'
+import { getEvent } from '../../utils/common'
+const myEvent = getEvent();
 class Cata extends Component {
 	constructor() {
 		super(...arguments);
@@ -22,11 +24,13 @@ class Cata extends Component {
 			this.setState({ selectCata: item }, () => {
 				this.props.onChangeCata && this.props.onChangeCata(this.state.selectCata)
 			})
+			myEvent.emit('changeCate')
 		}
 		else if (!this.state.selectCata) {
 			this.setState({ selectCata: item }, () => {
 				this.props.onChangeCata && this.props.onChangeCata(this.state.selectCata)
 			})
+			myEvent.emit('changeCate')
 		}
 	}
 	render () {
