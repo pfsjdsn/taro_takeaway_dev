@@ -46,7 +46,6 @@ class AddCut extends Component {
             })
 
         }
-        console.log(this.state.Num, 'this.state.Num');
 
     }
     render () {

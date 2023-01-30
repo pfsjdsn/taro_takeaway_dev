@@ -11,7 +11,6 @@ class FoodList extends Component {
 	}
 	render () {
 		let { selectCata, currentList } = this.props
-		console.log(JSON.stringify(this.props.currentList))
 		return (<View className='foodlist'>
 			<Text>{selectCata ? selectCata.name : ''}</Text>
 			<View className='foodlist_forlist'>
