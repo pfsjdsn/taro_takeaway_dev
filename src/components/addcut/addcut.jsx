@@ -21,8 +21,10 @@ class AddCut extends Component {
     CutFood () {
         if (this.props.food) {
             if (this.state.Num > 0) {
+
                 setFoodCount(this.props.food, this.state.Num, 'cut', () => {
                     this.setState({ Num: getFoodCount(this.props.food) })
+                    myEvent.emit('addcut')
                 })
             }
             else {
@@ -35,9 +37,12 @@ class AddCut extends Component {
     // 加1
     AddFood () {
         if (this.props.food) {
+
             setFoodCount(this.props.food, this.state.Num, 'add', () => {
                 this.setState({ Num: getFoodCount(this.props.food) })
+                myEvent.emit('addcut')
             })
+
         }
         console.log(this.state.Num, 'this.state.Num');
 

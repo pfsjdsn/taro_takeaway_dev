@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
+import { getAllFoodInfo, getEvent } from '../../utils/common';
 import './bottom.less'
+let events = getEvent()
 class Bottom extends Component {
 	constructor() {
 		super(...arguments);
@@ -10,8 +12,21 @@ class Bottom extends Component {
 			sendPrice: 4,
 			supportTakeBySelf: false,
 			// 起送费
-			sendMustPrice: 20
+			sendMustPrice: 20,
+			// 总价
+			allPrice: 0
 		};
+	}
+	componentDidMount () {
+		// 方法一 要获取整体的存储的菜品数据 进行计算
+		// 方法二 获取计算好的 设置给state (此处用的第二种方法)
+		let { allPrice, allNum } = getAllFoodInfo()
+		this.setState({ Num: allNum, allPrice: allPrice })
+		events.on('addcut', () => {
+			// 菜品发生变化 
+			let { allPrice, allNum } = getAllFoodInfo()
+			this.setState({ Num: allNum, allPrice: allPrice })
+		})
 	}
 	render () {
 		let { Num, sendPrice, supportTakeBySelf, sendMustPrice } = this.state

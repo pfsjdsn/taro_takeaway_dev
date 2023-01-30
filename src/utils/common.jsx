@@ -64,3 +64,23 @@ export function getEvent () {
     return myEvent
 }
 
+// 获取所有菜品数量 及价格
+export function getAllFoodInfo () {
+    // 总价格
+    let allPrice = 0
+    // 总数量 
+    let allNum = 0
+    // 取菜品信息
+    let store = Taro.getStorageSync(foodkey)
+    if (store) {
+        // 对store 进行遍历
+        Object.keys(store).map((key) => {
+            if (store[key]) {
+                allPrice += store[key].price * store[key].Num
+                allNum += store[key].Num
+            }
+        })
+    }
+    return { allPrice, allNum }
+
+}
