@@ -47,7 +47,8 @@ const config = {
     }
   },
   h5: {
-    publicPath: '/',
+    // 此处打包成 h5　publicPath: '/'  需要修改成 publicPath: '/dist/'
+    publicPath: '/dist/',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
@@ -73,6 +74,7 @@ const config = {
     }
   }
 }
+
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
