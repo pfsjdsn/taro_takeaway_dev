@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import { getAllFoodInfo, getEvent } from '../../utils/common';
+import foodstorePng from '../../assets/img/foodstore.png'
+import emptystorePng from '../../assets/img/emptystore.png'
 import './bottom.less'
 let events = getEvent()
 class Bottom extends Component {
@@ -28,18 +30,25 @@ class Bottom extends Component {
 			this.setState({ Num: allNum, allPrice: allPrice })
 		})
 	}
+	goPay () {
+		alert('功能正在开发中~')
+	}
 	render () {
 		let { allPrice, Num, sendPrice, supportTakeBySelf, sendMustPrice } = this.state
 		return (<View className='bottom'>
 			<View className='bottom_body'>
 				{Num ? <Text className='num'>{Num}</Text> : null}
-				<img className='store_img' src={Num > 0 ? require('../../assets/img/foodstore.png') : require('../../assets/img/emptystore.png')} />
+				{
+					process.env.TARO_ENV === 'h5' ? <img className='store_img' src={Num > 0 ? require('../../assets/img/foodstore.png') : require('../../assets/img/emptystore.png')} /> :
+						<image className='store_img' src={Num > 0 ? foodstorePng : emptystorePng} ></image>
+				}
+
 				<View className='info'>
 					{allPrice ? <Text className='price'>{'￥' + allPrice}</Text> : <Text>{sendPrice ? '另需配送费￥' + sendPrice + '|' : ''}</Text>}
-					<Text>{supportTakeBySelf ? '支持自取' : '不支持自取'}</Text>
+					<Text>{supportTakeBySelf ? ' 支持自取' : ' 不支持自取'}</Text>
 				</View>
 				<View className='submit'>
-					{allPrice > sendMustPrice ? <Text className='goPay'>去结算</Text> : <Text>{sendMustPrice ? '￥' + sendMustPrice + '起送' : ''}</Text>}
+					{allPrice > sendMustPrice ? <Text className='goPay' onClick={this.goPay.bind(this)}>去结算</Text> : <Text>{sendMustPrice ? '￥' + sendMustPrice + '起送' : ''}</Text>}
 				</View>
 			</View>
 

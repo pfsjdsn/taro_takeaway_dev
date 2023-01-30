@@ -55,8 +55,8 @@ class Food extends Component {
 					</View>
 
 				</AtTabsPane>
-				<AtTabsPane>评价</AtTabsPane>
-				<AtTabsPane>商家 </AtTabsPane>
+				<AtTabsPane className='title'>评价</AtTabsPane>
+				<AtTabsPane className='title'>商家 </AtTabsPane>
 			</AtTabs>
 
 		</View >)

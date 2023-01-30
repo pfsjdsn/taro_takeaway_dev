@@ -36,7 +36,7 @@ class Activity extends Component {
         return (
             <View className='activity'>
                 <Text className='type'>{this.getTextByType(firstItem.type)}</Text>
-                <Text>{this.getLine(firstItem.info)}</Text>
+                <Text className='title'>{this.getLine(firstItem.info)}</Text>
                 <Text className='length'>{this.state.activity.length}个活动</Text>
             </View>
         )

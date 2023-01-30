@@ -15,7 +15,7 @@ class Cata extends Component {
 				{ name: '主食', id: 4 },
 				{ name: '热炒', id: 5 },
 				{ name: '凉菜', id: 6 },
-				{ name: '特色乱炖', id: 7 },
+				{ name: '特色菜', id: 7 },
 			]
 		};
 	}

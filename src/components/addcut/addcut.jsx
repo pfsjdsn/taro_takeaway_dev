@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import { getFoodCount, setFoodCount, getEvent } from '../../utils/common'
+import cugPng from '../../assets/img/cut.png'
+import addPng from '../../assets/img/add.png'
 import './addcut.less'
 const myEvent = getEvent();
 class AddCut extends Component {
@@ -51,9 +53,14 @@ class AddCut extends Component {
         let { Num } = this.state
         let hideClass = Num > 0 ? '' : 'hide'
         return (<View className='addcut'>
-            <img onClick={this.CutFood.bind(this)} className={'operate_img ' + hideClass} src={require('../../assets/img/cut.png')} alt="" />
+            {process.env.TARO_ENV === 'h5' ? <img onClick={this.CutFood.bind(this)} className={'operate_img ' + hideClass} src={require('../../assets/img/cut.png')} alt="" /> :
+                <image onClick={this.CutFood.bind(this)} className={'operate_img ' + hideClass} src={cugPng} ></image>}
+
             <Text className={'food_num ' + hideClass}>{this.state.Num}</Text>
-            <img onClick={this.AddFood.bind(this)} className='operate_img' src={require('../../assets/img/add.png')} alt="" />
+
+            {process.env.TARO_ENV === 'h5' ? <img onClick={this.AddFood.bind(this)} className='operate_img' src={require('../../assets/img/add.png')} alt="" /> :
+                <image onClick={this.AddFood.bind(this)} className='operate_img' src={addPng} ></image>}
+
 
         </View>)
     }
