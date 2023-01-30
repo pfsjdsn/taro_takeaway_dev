@@ -48,7 +48,7 @@ const config = {
   },
   h5: {
     // 此处打包成 h5　publicPath: '/'  需要修改成 publicPath: '/dist/'
-    publicPath: '/dist/',
+    publicPath: '../dist/',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
