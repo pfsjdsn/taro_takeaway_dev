@@ -19,6 +19,20 @@
   background-color: #3a3b36;
   color: #89888d;
 }
+.bottom .bottom_body .num {
+  position: absolute;
+  margin-left: 63px;
+  margin-top: -20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: red;
+  line-height: 20px;
+  text-align: center;
+  z-index: 2;
+  padding: 5px;
+}
 .bottom .bottom_body .store_img {
   width: 60px;
   height: 60px;
